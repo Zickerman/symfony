@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block title %} 
+{% endblock %}
+{% block body %}
+    {% for post in posts %}
+        <a href="{{ path('detail_post', {'slug': post.slug}) }}">{{ post.title }}</a><br><br>
+    {% endfor %}
+{% endblock %}

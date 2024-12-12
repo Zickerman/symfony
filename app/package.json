@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "@hotwired/stimulus": "^3.0.0",
+    "@hotwired/turbo": "^7.1.1 || ^8.0",
+    "@symfony/stimulus-bridge": "^3.2.0",
+    "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/assets",
+    "@symfony/webpack-encore": "^5.0.1",
+    "@vue/compiler-sfc": "^3.5.13",
+    "sass": "^1.82.0",
+    "sass-loader": "^16.0.4",
+    "vue": "^3.5.13",
+    "vue-loader": "^17.4.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "scripts": {
+    "dev": "encore dev --watch",
+    "build": "encore production"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}
