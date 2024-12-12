@@ -16,6 +16,15 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
+    public function searchByQuery(string $query)
+    {
+        return $this->createQueryBuilder('post')
+            ->where('post.title LIKE :query')
+            ->setParameter('query', '%' . $query . '%')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Post[] Returns an array of Post objects
 //     */

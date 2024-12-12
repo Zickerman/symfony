@@ -18,7 +18,7 @@ class PostsController extends AbstractController
     public function __construct(private PostRepository $postRepository)
     {}
 
-    #[Route('/posts', name: 'blog_posts')]
+    #[Route('/', name: 'blog_posts')]
     public function posts(): Response
     {
         $posts = $this->postRepository->findAll();
@@ -92,5 +92,16 @@ class PostsController extends AbstractController
         $em->flush();
 
         return $this->redirectToRoute('blog_posts');
+    }
+
+    #[Route('posts/search', name: 'blog_search')]
+    public function search(Request $request)
+    {
+        $query = $request->query->get('q');
+        $posts = $this->postRepository->searchByQuery($query);
+        
+        return $this->render('posts/query_post.html.twig', [
+            'posts' => $posts
+        ]);
     }
 }

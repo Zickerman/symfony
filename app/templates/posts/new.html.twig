@@ -1,11 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ form_start(form) }}
-        {{ form_row(form.title) }}
-        {{ form_row(form.body, { 'attr': {
-            'rows' : '10',
-            'cols' : '10' }}) }}
-    <button class="btn btn-default" type="submit">Сохранить</button>
-    {{ form_end(form) }}
+	<div class="container mt-4">
+		<h1>Создание поста</h1>
+
+		{{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': true}}) }}
+
+		<div class="mb-3">
+			{{ form_label(form.title, 'Заголовок', {'label_attr': {'class': 'form-label'}}) }}
+			{{ form_widget(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Введите заголовок'}}) }}
+			{{ form_errors(form.title) }}
+		</div>
+
+		<div class="mb-3">
+			{{ form_label(form.body, 'Содержание', {'label_attr': {'class': 'form-label'}}) }}
+			{{ form_widget(form.body, {'attr': {'class': 'form-control', 'rows': 10, 'cols': 10, 'placeholder': 'Введите текст поста'}}) }}
+			{{ form_errors(form.body) }}
+		</div>
+
+		<button class="btn btn-primary" type="submit">Сохранить</button>
+
+		{{ form_end(form) }}
+	</div>
 {% endblock %}
+

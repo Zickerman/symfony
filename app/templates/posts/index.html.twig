@@ -1,8 +1,22 @@
 {% extends 'base.html.twig' %}
-{% block title %} 
+{% block title %}
+	Главная страница
 {% endblock %}
+
 {% block body %}
-    {% for post in posts %}
-        <a href="{{ path('detail_post', {'slug': post.slug}) }}">{{ post.title }}</a><br><br>
-    {% endfor %}
+	<div class="container mt-5">
+		<form class="d-flex justify-content-center mb-4" action="{{ path('blog_search') }}" method="get">
+			<input class="form-control w-50 mr-2" type="search" aria-label="Search" name="q">
+			<button class="btn btn-primary" type="submit">Искать</button>
+		</form>
+
+		<div class="list-group">
+			{% for post in posts %}
+				<a href="{{ path('detail_post', {'slug': post.slug}) }}" class="list-group-item list-group-item-action">
+					{{ post.title }}
+				</a>
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}
+
