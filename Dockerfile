@@ -27,6 +27,8 @@ RUN npm install bootstrap@5 --save
 # using Composer with root rights
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
+RUN composer require symfony/mailgun-mailer
+
 ARG USER_ID=1000
 ARG GROUP_ID=1000
 RUN groupadd -g ${GROUP_ID} appgroup && \

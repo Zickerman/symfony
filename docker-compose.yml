@@ -12,8 +12,9 @@ services:
     volumes:
       - ./app:/var/www/html
     environment:
-      - APP_ENV=dev
-      - DATABASE_URL=pgsql://test:test@symfony_postgres:5432/test
+      - APP_ENV=${APP_ENV}
+      - DATABASE_URL=${DATABASE_URL}
+      - MAILER_DSN=${MAILER_DSN}
     networks:
       - symfony_network
 
